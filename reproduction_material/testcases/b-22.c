@@ -1,3 +1,8 @@
+/**
+ * x86_64 clang 14.0.0 at all optimization levels
+ * Clang exclusive.
+ * In union u, a and b are explicitly initialized, c is zero-initialized by default, the remaining 4 bytes is uninitialized.
+ */
 #include<stdio.h>
 
 union U {

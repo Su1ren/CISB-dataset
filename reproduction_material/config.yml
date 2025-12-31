@@ -680,7 +680,7 @@ b-11.c-gcc-O0:
     check_type: 3
     test_str: "cmpl   $0x9"
     section_name: "<main>:"
-    special_cause: 
+    special_cause: UB
     
 b-12.c-gcc-O3:
     file_name: "b-12.c"
@@ -786,7 +786,7 @@ b-13.c-gcc-O1:
     input:
     check_type: 5
     test_str: "x, 12(%"
-    section_name: ".L5:"
+    section_name: ".L4:"
     special_cause: UB
 
 b-13.c-gcc-O0:
@@ -1087,49 +1087,13 @@ b-21.c-clang-O0:
     section_name: "<main>:"
     special_cause: "Others"
 
-b-22.c-gcc-O3:
-    file_name: "b-22.c"
-    cc: gcc-12
-    input:
-    check_type: 5
-    test_str: "movl   $0x0"
-    section_name: "movl   $0x0"
-    special_cause: "Others"
-
-b-22.c-gcc-O2:
-    file_name: "b-22.c"
-    cc: gcc-12
-    input:
-    check_type: 5
-    test_str: "movl   $0x0"
-    section_name: "movl   $0x0"
-    special_cause: "Others"
-
-b-22.c-gcc-O1:
-    file_name: "b-22.c"
-    cc: gcc-12
-    input:
-    check_type: 5
-    test_str: "movl   $0x0"
-    section_name: "movl   $0x0"
-    special_cause: "Others"
-
-b-22.c-gcc-O0:
-    file_name: "b-22.c"
-    cc: gcc-12
-    input:
-    check_type: 5
-    test_str: "movl   $0x0"
-    section_name: "movl   $0x0"
-    special_cause: "Others"
-
 b-22.c-clang-O3:
     file_name: "b-22.c"
     cc: clang-14
     input:
     check_type: 5
-    test_str: "movl   $0x0"
-    section_name: "movl   $0x0"
+    test_str: "movl	$0, 20(%rsp)"
+    section_name: "bar:"
     special_cause: "Others"
 
 b-22.c-clang-O2:
@@ -1137,8 +1101,8 @@ b-22.c-clang-O2:
     cc: clang-14
     input:
     check_type: 5
-    test_str: "movl   $0x0"
-    section_name: "movl   $0x0"
+    test_str: "movl	$0, 20(%rsp)"
+    section_name: "bar:"
     special_cause: "Others"
 
 b-22.c-clang-O1:
@@ -1146,8 +1110,8 @@ b-22.c-clang-O1:
     cc: clang-14
     input:
     check_type: 5
-    test_str: "movl   $0x0"
-    section_name: "movl   $0x0"
+    test_str: "movl	$0, 20(%rsp)"
+    section_name: "bar:"
     special_cause: "Others"
 
 b-22.c-clang-O0:
@@ -1155,8 +1119,8 @@ b-22.c-clang-O0:
     cc: clang-14
     input:
     check_type: 5
-    test_str: "movl   $0x0"
-    section_name: "movl   $0x0"
+    test_str: "movl	$0, -20(%rbp)"
+    section_name: "bar:"
     special_cause: "Others"
 
 b-26.c:
@@ -1197,6 +1161,42 @@ l-2.c-clang-O0:
     check_type: 2
     test_str: "0"
     section_name:
+    special_cause: UB
+
+l-8.c-gcc-O3:
+    file_name: "l-8.c"
+    cc: gcc-12
+    input:
+    check_type: 3
+    test_str: "cmpl   $0x0,"
+    section_name: "<main>:"
+    special_cause: UB
+
+l-8.c-gcc-O2:
+    file_name: "l-8.c"
+    cc: gcc-12
+    input:
+    check_type: 3
+    test_str: "cmpl   $0x0,"
+    section_name: "<main>:"
+    special_cause: UB
+
+l-8.c-gcc-O1:
+    file_name: "l-8.c"
+    cc: gcc-12
+    input:
+    check_type: 3
+    test_str: "cmpl   $0x0,"
+    section_name: "<main>:"
+    special_cause: UB
+
+l-8.c-gcc-O0:
+    file_name: "l-8.c"
+    cc: gcc-12
+    input:
+    check_type: 3
+    test_str: "cmpl   $0x0,"
+    section_name: "<main>:"
     special_cause: UB
 
 l-8.c-clang-O3:
@@ -1919,3 +1919,811 @@ l-43.c-clang-O0:
     test_str: "memset"
     section_name: "<main>:"
     special_cause: "Environment assumption"
+
+l-38.c-gcc-O3:
+    file_name: "l-38.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movl	global_var"
+    section_name: ".LFB0:"
+    special_cause: "DB"
+    
+l-38.c-gcc-O2:
+    file_name: "l-38.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movl	global_var"
+    section_name: ".LFB0:"
+    special_cause: "DB"
+
+l-38.c-gcc-O1:
+    file_name: "l-38.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movl	global_var"
+    section_name: ".LFB0:"
+    special_cause: "DB"
+
+l-38.c-gcc-O0:
+    file_name: "l-38.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movl	global_var"
+    section_name: ".LFB0:"
+    special_cause: "DB"
+
+l-38.c-clang-O3:
+    file_name: "l-38.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "movq	global_var@GOTPCREL"
+    section_name: "poll_without_relax:"
+    special_cause: "DB"
+
+l-38.c-clang-O2:
+    file_name: "l-38.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "movq	global_var@GOTPCREL"
+    section_name: "poll_without_relax:"
+    special_cause: "DB"
+
+l-38.c-clang-O1:
+    file_name: "l-38.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "movq	global_var@GOTPCREL"
+    section_name: "poll_without_relax:"
+    special_cause: "DB"
+
+l-38.c-clang-O0:
+    file_name: "l-38.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "movq	global_var@GOTPCREL"
+    section_name: "poll_without_relax:"
+    special_cause: "DB"
+
+b-28.c-gcc-O3:
+    file_name: "b-28.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\t__local_bh_enable"
+    section_name: ".LFB2:"
+    special_cause: UB
+
+b-28.c-gcc-O2:
+    file_name: "b-28.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\t__local_bh_enable"
+    section_name: ".LFB2:"
+    special_cause: UB
+
+b-28.c-gcc-O1:
+    file_name: "b-28.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\t__local_bh_enable"
+    section_name: ".LFB2:"
+    special_cause: UB
+
+b-28.c-gcc-O0:
+    file_name: "b-28.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\t__local_bh_enable"
+    section_name: ".LFB2:"
+    special_cause: UB
+
+b-29.c-clang-O3:
+    file_name: "b-29.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tget_arg_via_stack"
+    section_name: "main:"
+    special_cause: UB
+
+b-29.c-clang-O2:
+    file_name: "b-29.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tget_arg_via_stack"
+    section_name: "main:"
+    special_cause: UB
+
+b-29.c-clang-O1:
+    file_name: "b-29.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tget_arg_via_stack"
+    section_name: "main:"
+    special_cause: UB
+
+b-29.c-clang-O0:
+    file_name: "b-29.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tget_arg_via_stack"
+    section_name: "main:"
+    special_cause: UB
+
+b-29.c-gcc-O3:
+    file_name: "b-29.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movq	$0, 8(%rsp)"
+    section_name: ".LFB24:"
+    special_cause: UB
+
+b-29.c-gcc-O2:
+    file_name: "b-29.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movq	$0, 8(%rsp)"
+    section_name: ".LFB24:"
+    special_cause: UB
+
+b-29.c-gcc-O1:
+    file_name: "b-29.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movq	$0, 8(%rsp)"
+    section_name: ".LFB24:"
+    special_cause: UB
+
+b-29.c-gcc-O0:
+    file_name: "b-29.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movq	$0, 8(%rsp)"
+    section_name: ".LFB1:"
+    special_cause: UB
+
+l-55.c-clang-O3:
+    file_name: "l-55.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "malloc"
+    section_name: "xdp_redirect_map_egress:"
+    special_cause: Others
+
+l-55.c-clang-O2:
+    file_name: "l-55.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "malloc"
+    section_name: "xdp_redirect_map_egress:"
+    special_cause: Others
+
+l-55.c-clang-O1:
+    file_name: "l-55.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "malloc"
+    section_name: "xdp_redirect_map_egress:"
+    special_cause: Others
+
+l-55.c-clang-O0:
+    file_name: "l-55.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "malloc"
+    section_name: "xdp_redirect_map_egress:"
+    special_cause: Others
+
+l-52.c-gcc-O3:
+    file_name: "l-52.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "user_access_begin"
+    section_name: ".LFB25:"
+    special_cause: DB
+
+l-52.c-gcc-O2:
+    file_name: "l-52.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "user_access_begin"
+    section_name: ".LFB25:"
+    special_cause: DB
+
+l-52.c-gcc-O1:
+    file_name: "l-52.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "user_access_begin"
+    section_name: ".LFB25:"
+    special_cause: DB
+
+l-52.c-gcc-O0:
+    file_name: "l-52.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "user_access_begin"
+    section_name: ".LFB2:"
+    special_cause: DB
+
+l-52.c-clang-O3:
+    file_name: "l-52.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "user_access_begin"
+    section_name: "wrapper:"
+    special_cause: DB
+
+l-52.c-clang-O2:
+    file_name: "l-52.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "user_access_begin"
+    section_name: "wrapper:"
+    special_cause: DB
+
+l-52.c-clang-O1:
+    file_name: "l-52.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "user_access_begin"
+    section_name: "wrapper:"
+    special_cause: DB
+
+l-52.c-clang-O0:
+    file_name: "l-52.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "user_access_begin"
+    section_name: "wrapper:"
+    special_cause: DB
+
+l-53.c-gcc-O3:
+    file_name: "l-53.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\tdebug_lockdep_rcu_enabled_old"
+    section_name: ".LFB26:"
+    special_cause: DB
+
+l-53.c-gcc-O2:
+    file_name: "l-53.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\tdebug_lockdep_rcu_enabled_old"
+    section_name: ".LFB26:"
+    special_cause: DB
+
+l-53.c-gcc-O1:
+    file_name: "l-53.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\tdebug_lockdep_rcu_enabled_old"
+    section_name: ".LFB26:"
+    special_cause: DB
+
+l-53.c-gcc-O0:
+    file_name: "l-53.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\tdebug_lockdep_rcu_enabled_old"
+    section_name: ".LFB3:"
+    special_cause: DB
+
+l-53.c-clang-O3:
+    file_name: "l-53.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tdebug_lockdep_rcu_enabled_old"
+    section_name: "caller_old:"
+    special_cause: DB
+
+l-53.c-clang-O2:
+    file_name: "l-53.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tdebug_lockdep_rcu_enabled_old"
+    section_name: "caller_old:"
+    special_cause: DB
+
+l-53.c-clang-O1:
+    file_name: "l-53.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tdebug_lockdep_rcu_enabled_old"
+    section_name: "caller_old:"
+    special_cause: DB
+
+l-53.c-clang-O0:
+    file_name: "l-53.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tdebug_lockdep_rcu_enabled_old"
+    section_name: "caller_old:"
+    special_cause: DB
+
+b-30.c-gcc-O3:
+    file_name: "b-30.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movq	%r8, 4(%rdi)"
+    section_name: ".LFB0:"
+    default_option: "-shared"
+    special_cause: UB
+
+b-30.c-gcc-O2:
+    file_name: "b-30.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movq	%r8, 4(%rdi)"
+    section_name: ".LFB0:"
+    default_option: "-shared"
+    special_cause: UB
+
+b-30.c-gcc-O1:
+    file_name: "b-30.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movq	%r8, 4(%rdi)"
+    section_name: ".LFB0:"
+    default_option: "-shared"
+    special_cause: UB
+
+b-30.c-gcc-O0:
+    file_name: "b-30.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movq	%r8, 4(%rdi)"
+    section_name: ".LFB0:"
+    default_option: "-shared"
+    special_cause: UB
+
+l-54.c-clang-O3:
+    file_name: "l-54.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "movaps"
+    section_name: "main:"
+    special_cause: "Environment assumption"
+
+l-54.c-clang-O2:
+    file_name: "l-54.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "movaps"
+    section_name: "main:"
+    special_cause: "Environment assumption"
+
+l-54.c-clang-O1:
+    file_name: "l-54.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "movaps"
+    section_name: "main:"
+    special_cause: "Environment assumption"
+
+l-54.c-clang-O0:
+    file_name: "l-54.c"
+    cc: clang-14
+    input:
+    check_type: 6
+    test_str: "movaps"
+    section_name: "main:"
+    special_cause: "Environment assumption"
+
+b-27.c-gcc-O3:
+    file_name: "b-27.c"
+    cc: gcc-4.1
+    input:
+    check_type: 4
+    test_str: "add    $0x4,%rcx"
+    section_name: "<main>:"
+    special_cause: UB
+
+b-27.c-gcc-O2:
+    file_name: "b-27.c"
+    cc: gcc-4.1
+    input:
+    check_type: 4
+    test_str: "add    $0x4,%rcx"
+    section_name: "<main>:"
+    special_cause: UB
+
+b-27.c-gcc-O1:
+    file_name: "b-27.c"
+    cc: gcc-4.1
+    input:
+    check_type: 4
+    test_str: "add    $0x4,%rcx"
+    section_name: "<main>:"
+    special_cause: UB
+
+b-27.c-gcc-O0:
+    file_name: "b-27.c"
+    cc: gcc-4.1
+    input:
+    check_type: 4
+    test_str: "add    $0x4,%rcx"
+    section_name: "<main>:"
+    special_cause: UB
+
+l-50.c-clang-O3:
+    file_name: "l-50.c"
+    cc: clang-17
+    input:
+    check_type: 5
+    test_str: "cmpl	$0"
+    section_name: "connect_v4_prog:"
+    special_cause: DB
+
+l-50.c-clang-O2:
+    file_name: "l-50.c"
+    cc: clang-17
+    input:
+    check_type: 5
+    test_str: "cmpl	$0"
+    section_name: "connect_v4_prog:"
+    special_cause: DB
+
+l-50.c-clang-O1:
+    file_name: "l-50.c"
+    cc: clang-17
+    input:
+    check_type: 5
+    test_str: "cmpl	$0"
+    section_name: "connect_v4_prog:"
+    special_cause: DB
+
+l-50.c-clang-O0:
+    file_name: "l-50.c"
+    cc: clang-17
+    input:
+    check_type: 5
+    test_str: "cmpl	$0"
+    section_name: "connect_v4_prog:"
+    special_cause: DB
+
+l-51.c-gcc-O3:
+    file_name: "l-51.c"
+    cc: gcc-7
+    input:
+    check_type: 5
+    test_str: "movl	-4(%ebp), %edx"
+    section_name: ".LFB0:"
+    default_option: "-m32"
+    special_cause: DB
+
+l-51.c-gcc-O2:
+    file_name: "l-51.c"
+    cc: gcc-7
+    input:
+    check_type: 5
+    test_str: "movl	-4(%ebp), %edx"
+    section_name: ".LFB0:"
+    default_option: "-m32"
+    special_cause: DB
+
+l-51.c-gcc-O1:
+    file_name: "l-51.c"
+    cc: gcc-7
+    input:
+    check_type: 5
+    test_str: "movl	-4(%ebp), %edx"
+    section_name: ".LFB0:"
+    default_option: "-m32"
+    special_cause: DB
+
+l-51.c-gcc-O0:
+    file_name: "l-51.c"
+    cc: gcc-7
+    input:
+    check_type: 5
+    test_str: "movl	-4(%ebp), %edx"
+    section_name: ".LFB0:"
+    default_option: "-m32"
+    special_cause: DB
+
+l-51.c-clang-O3:
+    file_name: "l-51.c"
+    cc: clang-12
+    input:
+    check_type: 5
+    test_str: "movl	-20(%ebp), %edx"
+    section_name: "test:"
+    default_option: "-m32"
+    special_cause: DB
+
+l-51.c-clang-O2:
+    file_name: "l-51.c"
+    cc: clang-12
+    input:
+    check_type: 5
+    test_str: "movl	-20(%ebp), %edx"
+    section_name: "test:"
+    default_option: "-m32"
+    special_cause: DB
+
+l-51.c-clang-O1:
+    file_name: "l-51.c"
+    cc: clang-12
+    input:
+    check_type: 5
+    test_str: "movl	-20(%ebp), %edx"
+    section_name: "test:"
+    default_option: "-m32"
+    special_cause: DB
+
+l-51.c-clang-O0:
+    file_name: "l-51.c"
+    cc: clang-12
+    input:
+    check_type: 5
+    test_str: "movl	-20(%ebp), %edx"
+    section_name: "test:"
+    default_option: "-m32"
+    special_cause: DB
+
+b-31.c-gcc-O3:
+    file_name: "b-31.c"
+    cc: gcc-4.1
+    input:
+    check_type: 5
+    test_str: "div"
+    section_name: ".LFB3:"
+    special_cause: DB
+
+b-31.c-gcc-O2:
+    file_name: "b-31.c"
+    cc: gcc-4.1
+    input:
+    check_type: 5
+    test_str: "div"
+    section_name: ".LFB3:"
+    special_cause: DB
+
+b-31.c-gcc-O1:
+    file_name: "b-31.c"
+    cc: gcc-4.1
+    input:
+    check_type: 5
+    test_str: "div"
+    section_name: ".LFB3:"
+    special_cause: DB
+
+b-31.c-gcc-O0:
+    file_name: "b-31.c"
+    cc: gcc-4.1
+    input:
+    check_type: 5
+    test_str: "div"
+    section_name: ".LCFI4:"
+    special_cause: DB
+
+l-56.c-clang-O3:
+    file_name: "l-56.c"
+    cc: clang-11
+    input:
+    check_type: 6
+    test_str: "r0 = 0"
+    section_name: "bpf_test:"
+    default_option: "--target=bpf"
+    special_cause: DB
+
+l-56.c-clang-O2:
+    file_name: "l-56.c"
+    cc: clang-11
+    input:
+    check_type: 6
+    test_str: "r0 = 0"
+    section_name: "bpf_test:"
+    default_option: "--target=bpf"
+    special_cause: DB
+
+l-56.c-clang-O1:
+    file_name: "l-56.c"
+    cc: clang-11
+    input:
+    check_type: 6
+    test_str: "r0 = 0"
+    section_name: "bpf_test:"
+    default_option: "--target=bpf"
+    special_cause: DB
+
+l-56.c-clang-O0:
+    file_name: "l-56.c"
+    cc: clang-11
+    input:
+    check_type: 6
+    test_str: "r0 = 0"
+    section_name: "LBB0_2:"
+    default_option: "--target=bpf"
+    special_cause: DB
+
+l-57.c-gcc-O3:
+    file_name: "l-57.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\tcpu_startup_entry"
+    section_name: ".LFB2:"
+    special_cause: DB
+
+l-57.c-gcc-O2:
+    file_name: "l-57.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\tcpu_startup_entry"
+    section_name: ".LFB2:"
+    special_cause: DB
+
+l-57.c-gcc-O1:
+    file_name: "l-57.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\tcpu_startup_entry"
+    section_name: ".LFB2:"
+    special_cause: DB
+
+l-57.c-gcc-O0:
+    file_name: "l-57.c"
+    cc: gcc-12
+    input:
+    check_type: 5
+    test_str: "call\tcpu_startup_entry"
+    section_name: ".LFB2:"
+    special_cause: DB
+
+l-57.c-clang-O3:
+    file_name: "l-57.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tcpu_startup_entry"
+    section_name: "start_secondary:"
+    special_cause: DB
+
+l-57.c-clang-O2:
+    file_name: "l-57.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tcpu_startup_entry"
+    section_name: "start_secondary:"
+    special_cause: DB
+
+l-57.c-clang-O1:
+    file_name: "l-57.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tcpu_startup_entry"
+    section_name: "start_secondary:"
+    special_cause: DB
+
+l-57.c-clang-O0:
+    file_name: "l-57.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "callq\tcpu_startup_entry"
+    section_name: "start_secondary:"
+    special_cause: DB
+
+l-58.c-gcc-O3:
+    file_name: "l-58.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movl	$305419896, -148(%rbp)"
+    section_name: ".LFB0:"
+    special_cause: DB
+
+l-58.c-gcc-O2:
+    file_name: "l-58.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movl	$305419896, -148(%rbp)"
+    section_name: ".LFB0:"
+    special_cause: DB
+
+l-58.c-gcc-O1:
+    file_name: "l-58.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movl	$305419896, -148(%rbp)"
+    section_name: ".LFB0:"
+    special_cause: DB
+
+l-58.c-gcc-O0:
+    file_name: "l-58.c"
+    cc: gcc-12
+    input:
+    check_type: 6
+    test_str: "movl	$305419896, -148(%rbp)"
+    section_name: ".LFB0:"
+    special_cause: DB
+
+l-29.c-gcc-O3:
+    file_name: "l-29.c"
+    cc: gcc-4.9
+    input:
+    check_type: 3
+    test_str: "memset"
+    section_name: "<add_to_ored_words>:"
+    special_cause: Others
+
+l-29.c-gcc-O2:
+    file_name: "l-29.c"
+    cc: gcc-4.9
+    input:
+    check_type: 3
+    test_str: "memset"
+    section_name: "<add_to_ored_words>:"
+    special_cause: Others
+
+l-29.c-gcc-O1:
+    file_name: "l-29.c"
+    cc: gcc-4.9
+    input:
+    check_type: 3
+    test_str: "memset"
+    section_name: "<add_to_ored_words>:"
+    special_cause: Others
+
+l-29.c-gcc-O0:
+    file_name: "l-29.c"
+    cc: gcc-4.9
+    input:
+    check_type: 3
+    test_str: "memset"
+    section_name: "<add_to_ored_words>:"
+    special_cause: Others

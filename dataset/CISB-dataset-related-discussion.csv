@@ -1,0 +1,22 @@
+Root cause,Insecure optimization behaviors,Security consequences,Security impacts,Unique bug id,Frequency,,,
+Orthogonal specification,Eliminating security related code,Elimination of software defense checks,"replace ret with jmp, break canary check",tail call optimization,1(linux),a9a3ed1eff3601b63aea4fb462d8b3b92c7c1e7e,"new OS, for discussion",
+Orthogonal specification,Introducing insecure instructions,Introduction of insecure logic in software defense,leak security sensitive data on stack like canary,register spill,1(linux),2c88c742d011707b55da7b54b06a030c6f57233f,"new OS, for discussion",
+,,,,,,,,
+Detailed info,,,,,,,,
+Unique bug id,Unique bug name,Occurence,Source,Commit/Bugzilla ID,Year,First appearance,Security impacts,Specific cause
+l-57,tail call optimization,1(linux),linux,a9a3ed1eff3601b63aea4fb462d8b3b92c7c1e7e,2020,2020,crash,Default Behavior
+l-58,register spill,1(linux),linux,2c88c742d011707b55da7b54b06a030c6f57233f,2019,2019,info leak,Default Behavior
+,,,,,,,,
+Related Cases (NEGATIVE for Ground Truth),,,,,,,,
+Implicit specification,Eliminating security related code,Elimination of security checks,strnlen check on uninit buffer eliminated->fall-through,UB: uninit buffer break strnlen FORTIFY,1(linux),146b6f1112eb30a19776d6c323c994e9d67790db,same as b-3,"might be PE(programmer unaware of UB), extend to UB-CISB, not ground truth"
+Implicit specification,Eliminating security related code,Elimination of critical memory operations,reg bits-op eliminated->crash,elimi-bitop,2(linux),f036ebd9bfbe1e91a3d855e85e05fc5ff156b641,put in discussion,compiler bug
+Implicit specification,Eliminating security related code,Elimination of critical memory operations,indirect call->direct call breaks CFI,inline indirect call,2(linux),cf90d0383560de12330de8cf3f831b14cdd45914,put in discussion/security testing,
+Implicit specification,Reordering order-sensitive security code,Disorder between security checks and dangerous operations,reorder inlined check after restore,inline and reorder,3(linux),da9057576785aaab52e706e76c0475c85b77ec14,put in discussion/security testing,
+Implicit specification,Introducing insecure instructions,Introduction of insecure logic,inst addr disorder,JIT branch displacement,2(linux),e4d4d456436bfb2fe412ee2cd489f7658449b098,put in discussion,compiler bug
+Implicit specification,Introducing insecure instructions,Introduction of insecure logic,diverge control flow,UB: fall through,linux,d6d43a92172085a2681e06a0d06aac53c7bcdd12,programming error,
+,,,,,,,,
+,,,,,,,,
+Related Security Issues,,,,,,,,
+frame pointer remains,873d50d58f67ef15d2777b5e7f7a5268bb1fbae2,2019,"exploit springboard, CVE-2017-7308",,,,,
+env_start failure stack frame,bff60150f7c464d80d86f289c056c2ad2afb3c05,2023,"""-O0"" still forcely uses frame pointer in the _start function even if the ""omit-frame-pointer"" flag is specified.",,,,,
+freestanding,3f301dc292eb122eff61b8b2906e519154b0327f,2023,"forbidding mem funcs opti leading to FORTIFY failure, software defense bug",,,,,

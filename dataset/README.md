@@ -39,3 +39,10 @@ Table 3: CISB-dataset-reproduce.csv
 | 3      | Compiler version:gcc       | The compiler(gcc) version we reproduce the bug               |
 | 4      | Compiler version:llvm      | The compiler(llvm) version we reproduce the bug              |
 | 5      | Compiler Explorer snapshot | An online compiler snapshot that preserve the code to reproduce the bug |
+
+## Supplement
+
+After updating CISB dataset, new Unique bug id is listed from:
+
+- Bugzilla: from b-27 to b-31
+- Linux: from l-50 to l-58 (l-57 and l-58 in related discussion, ground truth for OS 4 but not present in taxonomy table, test case provided as well)

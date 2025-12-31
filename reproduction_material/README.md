@@ -19,10 +19,11 @@ that installs these compilers
 cd path/to/artifact/env
 chomod +x auto_get_compiler.sh
 sudo auto_get_compiler.sh
-```
+   ```
 
 To check whether all required compilers are installed properly, simply
-execute the [scritp](../check-compiler.py).
+execute the [script](../check-compiler.py).
+
 ```
 python3 check-compiler.py
 ```
@@ -34,7 +35,7 @@ The source code of these testcases can be found in the folder
 
 We provide a [script](./reproduction_tester.py) to check the reproduction of each 
 single testcase automatically.
-- useage:`python3 reproduction_tester.py [-h] [-level LEVEL] [-cc CC] [-opt OPT] file`
+- usage:`python3 reproduction_tester.py [-h] [-level LEVEL] [-cc CC] [-opt OPT] file`
 - An example to get the reproduction result of `b-1.c` with gcc and compilation options of strategy
 "All-cisb" in `compiler_strategies/All-cisb_gcc.txt`.
 ```
@@ -65,3 +66,11 @@ These are the format of these oracles:
 - section_name: The name of the section in the disassembly code where the test string is searched for. 
   If the section_name begins with the word "between" followed by two strings, it indicates that the
   detector should check the scope between the positions of the two strings in the disassembly code.
+
+## Supplements
+
+After adding extra 17 test cases, not all of them will get wrong execution results under the specified compiler options.
+
+- DB_type_demotion.c sometimes fails on x86_64.
+
+Additionally, l-41 already exists in the original CISB dataset, so we do not use l-41-new.c for reproduction material.

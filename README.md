@@ -55,8 +55,8 @@ docker run -itd -v /path/to/cpu2006:/cisb_docker/CISB-dataset/spec/cpu2006 --nam
 
 As an alternative, you can also place SPEC CPU 2006 anywhere you like within the Docker container. In that case, you will need to set the environment variable before running the experiment in the container.
 ```
-export SEPC_CPU_2006_PATH='path/to/cpu2006'
-``` 
+export SPEC_CPU_2006_PATH='path/to/cpu2006'
+```
 
 5. Get into the Docker container:
 ```
@@ -79,7 +79,7 @@ The result should be in line with the data in Figure 2 and Figure 3 of the paper
 ```
 python3 statistic.py -e cisb-statistics
 ```
-## E2: Evaulation of mitigations
+## E2: Evaluation of mitigations
 1. Review a list of bugs where the prevention performed by programmers failed. 
 This list can be obtained by executing a script. The expected result is those CISBs exist.
 ```

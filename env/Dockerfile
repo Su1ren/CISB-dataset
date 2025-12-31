@@ -18,7 +18,12 @@ RUN apt-get -y update && apt-get -y install build-essential \
 	wget \
 	git \
 	make \
-	unzip
+	unzip \
+	flex \
+	libgmp-dev \
+	libmpfr-dev \
+	libmpc-dev \
+	texinfo
 
 RUN mkdir /cisb_docker
 WORKDIR /cisb_docker

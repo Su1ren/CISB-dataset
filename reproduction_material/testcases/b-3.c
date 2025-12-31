@@ -1,6 +1,6 @@
 /*successful
     x86-64 gcc 8-12.0.1 -O2
-    Compile and run the executable file, if the output dose not contain "done" and return 139, then there is a bug.
+    Compile and run the executable file, if the output does not contain "done" and return 139, then there is a bug.
 */
 #include <stdio.h>
 #include <string.h>

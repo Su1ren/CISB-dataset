@@ -1,7 +1,7 @@
 /*
-	x86-64gcc 4.1.2-12.0.1 -O1
-	x86-64clang 3.7-14.0.0 -O1
-	Generate the assembly code of this program, if the assembly code contains "call\thave_cpuid_p" between "call\tfoo2" and "puts", it means the compiler deletes the secenod have_cpuid_p(), so there is a bug.
+	x86-64gcc 4.1.2-12.0.1 -O1 and above
+	x86-64clang 3.7-14.0.0 -O1 and above
+	Generate the assembly code of this program, if the assembly code contains "call\thave_cpuid_p" between "call\tfoo2" and "puts", it means the compiler deletes the second have_cpuid_p(), so there is a bug.
 */
 #include <stdio.h>
 #include <stdlib.h>

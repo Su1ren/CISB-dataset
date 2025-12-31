@@ -2,8 +2,8 @@ import csv
 
 # a dict of tables and their keys
 table_key = {
-    "dataset/CISB-dataset-classification.csv": "Unique bug id",
-    "dataset/CISB-dataset-detailed-info.csv": "Commit/Bugzilla ID",
+    "dataset/CISB-dataset-classification-update.csv": "Unique bug id",
+    "dataset/CISB-dataset-detailed-info-update.csv": "Commit/Bugzilla ID",
     "dataset/CISB-dataset-reproduce.csv": "Unique bug id"
 }
 

@@ -2,8 +2,8 @@ import csv
 from tabulate import tabulate
 from spec.get_spec2006_result import table6_overhead
 
-bug_class = "dataset/CISB-dataset-classification.csv"
-bug_detail = "dataset/CISB-dataset-detailed-info.csv"
+bug_class = "dataset/CISB-dataset-classification-update.csv"
+bug_detail = "dataset/CISB-dataset-detailed-info-update.csv"
 
 class unique_bug:
     def __init__(self, id, bug_class):
@@ -31,7 +31,10 @@ bug_class_map = {
 for line in class_rows:
     if line:
         bid = line["Unique bug id"]
-        bclass= bug_class_map[line["Insecure optimization behaviors"]]
+        try:
+            bclass= bug_class_map[line["Insecure optimization behaviors"]]
+        except KeyError:
+            print('Unknown bug id', line)
         new_bug = unique_bug(bid, bclass)
         bugs.append(new_bug)   
 
@@ -131,8 +134,8 @@ def table_3():
 
     class_occurance_statistic = dict()
     for c,o in class_occurance.items():
-        # Years 04-06 07-09 10-12 13-15 16-18 19-21
-        p = [0] * 6
+        # Years 04-06 07-09 10-12 13-15 16-18 19-21 22-24
+        p = [0] * 7
         for year in o:
             if int(year) <= 2006:
                 p[0] += 1
@@ -144,8 +147,10 @@ def table_3():
                 p[3] += 1
             elif int(year) <= 2018:
                 p[4] += 1
-            else:
+            elif int(year) <= 2021:
                 p[5] += 1
+            else:
+                p[6] += 1
         class_occurance_statistic[c] = p
 
 
@@ -158,7 +163,7 @@ def table_3():
     table = [[key, *value] for key, value in class_occurance_statistic.items()]
 
     # Print the table using tabulate and specify row and column headers
-    print(tabulate(table, headers=['', '04-06', '07-09', '10-12', '13-15', '16-18', '19-21', 'Total'], tablefmt='fancy_grid'))
+    print(tabulate(table, headers=['', '04-06', '07-09', '10-12', '13-15', '16-18', '19-21', '22-24', 'Total'], tablefmt='fancy_grid'))
 
 
 class mitigation_work():
@@ -197,7 +202,7 @@ def table_7():
     }
 
     mitigation_cisb_map = {
-        'UBSan': ['l-13', 'l-8', 'l-24', 'b-8', 'b-9', 'b-11', 'b-4', 'b-14'],
+        'UBSan': ['l-13', 'l-8', 'l-24', 'b-8', 'b-9', 'b-11', 'b-4', 'b-14', 'b-29'],
         'ThreadSan': ['b-12', 'l-5', 'l-40', 'l-46', 'l-30', 'l-49', 'l-3', 'l-21', 'l-4', 'l-4a'],
         'TySan': ['b-13', 'b-26'],
         'Ct-verif, Jasmin, FaCT, CT-wasm, Simon, Barthe': ['l-6'],
@@ -208,12 +213,12 @@ def table_7():
         'Yang': ['l-9', 'b-21'],
         'K-Hunt': ['l-6'],
         'Sprundel': ['l-9', 'b-21'],
-        'Wu': ['l-13', 'l-8', 'b-2', 'l-24', 'b-8', 'b-9', 'b-10', 'b-12', 'b-5', 'b-6', 'l-30', 'b-4'],
+        'Wu': ['l-13', 'l-8', 'b-2', 'l-24', 'b-8', 'b-9', 'b-10', 'b-12', 'b-5', 'b-6', 'l-30', 'b-4', 'b-29'],
         'SpecFuzz, SpecTaint': ['l-25'],
-        'KUBO': ['l-13', 'l-8', 'l-24', 'b-9', 'b-10', 'b-11', 'b-4']
+        'KUBO': ['l-13', 'l-8', 'l-24', 'b-9', 'b-10', 'b-11', 'b-4', 'l-56']
     }
 
-    mitigation_cisb_commets = {
+    mitigation_cisb_comments = {
         'Wu': "we suppose they can prevent all UB-based elimination bugs caused by clang",
         'KUBO': "the UB types they support are shown in their Table II"
     }
@@ -248,27 +253,32 @@ def table_7():
         mitigation_cisb_info.append([m, scope, mitigation_cisb_map[m]])
     print(tabulate(mitigation_cisb_info, headers=["Automatic Prevention", "Target CISB type", "Target CISB"], tablefmt='fancy_grid'))
     
+def fmt(prevented, triggered):
+    total = prevented + triggered
+    if total == 0: return "0/0 (0.0)"
+    return f"{prevented}/{total} ({prevented/total:.4f})"
         
 def table_6_eff():
     from effectiveness_evaluation import get_dataset_value
     print('Table 6: An evaluation of the mitigations provided by the compiler')
     
     file_path = 'compiler_strategies'
-    strategy = ['O3', 'O2', 'O1', 'O0', 'All-ub_clang', 'All-ub_gcc', 'All-cisb_gcc', 'All-cisb_clang', 'ubsan', 'wall']
+    strategy = ['O3', 'O2', 'O1', 'O0', 'All-ub_gcc', 'All-ub_clang', 'All-cisb_gcc', 'All-cisb_clang', 'ubsan', 'wall']
     table_header = ['Strategy', '', 'Eff.(UB-CISB)',  'Eff. (all CISB)']
     table_data = []
+
     for s in strategy:
         res = get_dataset_value(file_path + '/' + s + '.txt', output=None)
         if 'ub' in s or s == 'wall':
             if 'clang' not in s:
-                table_data.append((s, 'gcc', res[1]/(res[1]+res[0]), '/'))
+                table_data.append((s, 'gcc', fmt(res[1], res[0]), '/'))
             if 'gcc' not in s:
-                table_data.append((s, 'clang', res[5]/(res[5]+res[4]), '/'))
+                table_data.append((s, 'clang', fmt(res[5], res[4]), '/'))
             continue
         if 'clang' not in s:
-            table_data.append((s, 'gcc', res[1]/(res[1]+res[0]), res[3]/(res[3]+res[2])))
+            table_data.append((s, 'gcc', fmt(res[1], res[0]), fmt(res[3], res[2])))
         if 'gcc' not in s:
-            table_data.append((s, 'clang', res[5]/(res[5]+res[4]), res[7]/(res[7]+res[6])))
+            table_data.append((s, 'clang', fmt(res[5], res[4]), fmt(res[7], res[6])))
     print(tabulate(table_data, headers=table_header, tablefmt='fancy_grid'))
 
 def table_6_overhead():
