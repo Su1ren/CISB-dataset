@@ -13,10 +13,10 @@ struct b{
     struct a stru;
 };
 
-int main(){
+int main() {
     struct a a1 = {1, 2};
     struct a *p = (struct a*)malloc(sizeof(struct a));
-    memcpy(&p->num2, &a1.num2, 8);                  // with arm64 gcc/clang -O0, memcpy chenged to ldr xreg
+    memcpy(&p->num2, &a1.num2, 8);                  // with arm64 gcc/clang -O0, memcpy changed to ldr xreg
 
     printf("%d %d", p->num2, p->num3);
 

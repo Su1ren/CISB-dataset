@@ -19,17 +19,32 @@ b-20,successful,4.4.7 -O1,,https://godbolt.org/z/xnsT5ozMz
 b-21/l-9,successful,4.1-12.0.1 -O1,3.0.0-14.0.0 -O1,https://godbolt.org/z/5n8c318PP
 b-22,successful,4.6-12.0.1 -O0,3.0-14.0.0 -O0,https://godbolt.org/z/336hsj697
 b-26,successful,arm 4.1-12.0.1 -O0,arm 9.0.0-14.0.0 -O0,https://godbolt.org/z/a1WKbT458
-l-2,successful,,11.0.0-14.0.0 -O1,https://godbolt.org/z/EYrM3PTaT
+b-27,successful,4.1.2-4.4.7 -O2,,https://godbolt.org/z/887cb3GE3
+b-28,successful,4.5.3-12.0.1 -O1,,https://godbolt.org/z/Yq7jTrPn5
+b-29,successful,4.8.1-12.0.1 -O1,3.2-14.0.0 -O1,https://godbolt.org/z/foc3Paedd
+b-30,successful,8.1.0-12.0.1 -O2 -shared,,https://godbolt.org/z/o8v8qrMqn
+b-31,successful,4.1.2-4.4.7 -O1;avr 4.5.4-4.6.4,,https://godbolt.org/z/dE58eK9Wq
+l-2,successful,,11.0.0-14.0.0 -O1,https://godbolt.org/z/sWcqzPKqv
 l-8,successful,,3.0-14.0.0 -O1,https://godbolt.org/z/96W3YGj4q
 l-11,successful,4.1.2-12.0.1 -O0,3.0.0-14.0.0 -O0,https://godbolt.org/z/qnf86fKnc
-l-13,successful,4.1.2 -O0; 9.1-12.0.1 -O1,3.3 - 14.0.0 -O1,https://godbolt.org/z/MPnqYzW3s
+l-13,successful,4.1.2 -O0; 9.1-12.0.1 -O1,3.3-14.0.0 -O1,https://godbolt.org/z/MPnqYzW3s
 l-15,successful,4.4-12.0.1 -O1; 3.0.0-14.0.0 -O1,,https://godbolt.org/z/o3MoEsa96
 l-16,successful,4.1.2 -O2,,https://godbolt.org/z/GsjWdGYdb
 l-18,successful,4.1.2 -O0,3.0.0-14.0.0 -O0,https://godbolt.org/z/dY5esc8aW
 l-19,successful,4.3-4.9 -O2,,https://godbolt.org/z/fMWfP77WY
 l-23,successful,arm64 5.4-12.2 -O0,arm 10.0.0-15.0.0 -O0,https://godbolt.org/z/6sbh5xzK4
 l-25,successful,7.3-8.3 -O0 -mindirect-branch=thunk,,https://godbolt.org/z/nfM39rP65
+l-29,successful,4.4.7-12.0.1 -O1,,https://godbolt.org/z/T664edWvh
 l-30,successful,4.1-12.0.1 -O1,3.0.0-14.0.0 -O1,https://godbolt.org/z/hn9fn9Pzv
 l-37,successful,4.1-12.0.1 -O2,3.0.0-14.0.0 -O1,https://godbolt.org/z/d9s8McjPE
+l-38,successful,4.1-12.0.1 -O1,3.0.0-14.0.0 -O1,https://godbolt.org/z/Pn1z48K1s
 l-41,successful,4.1-12.0.1 -O1,3.7-14.0.0 -O1,https://godbolt.org/z/3Mdfn9f1P
 l-43,successful,,3.0.0-14.0.0 -O1,https://godbolt.org/z/384e9KqEv
+l-50,successful,,17.0.1-21.1.0 -O1,https://godbolt.org/z/njPoq5asG
+l-51,successful,4.1-12.0.1 -O1,3.0.0-14.0.0 -O1,https://godbolt.org/z/bnGrKbns6
+l-52,successful,4.1-12.0.1 -O1,12.0.0-14.0.0 -O2,https://godbolt.org/z/GPxvvd1Yj
+l-54,successful,arm64 11.1.0-12.2 -O2,armv8 9.0.0-14.0.0 -O2,https://godbolt.org/z/a96hvsca7
+l-55,successful,,3.1.0-14.0.0 -O1,https://godbolt.org/z/bq9oE8hze
+l-56,successful,,3.0.0-11.1.0 -O1,cannot compile online
+l-57,successful,4.9-12.0.1 -O1,13.0.0-14.0.0 -O1,https://godbolt.org/z/x5hnM9b85
+l-58,successful,5.1-12.0.1 -O0,,https://godbolt.org/z/1o9M9MsjY

@@ -79,6 +79,28 @@ def _handle_special_cases(config_name, file_name, option_file_name, output, stat
             stats.num_bug_clang += 1
             stats.num_UB_clang += 1
         return True
+    
+    if config_name == arm_file_list[2]: # l_54.c
+        if ubsan_flag or warning_flag:
+            # not UB
+            return True
+        if 'All-cisb' in option_file_name or 'O0' in option_file_name or 'O1' in option_file_name:
+            if output == 'verbose':
+                print('no bug file:  ', file_name)
+            stats.num_nobug += 1
+            if not clang_only:
+                stats.num_nobug_gcc += 1
+            if not gcc_only:
+                stats.num_nobug_clang += 1
+        else:
+            if output == 'verbose':
+                print('bug file:  ', file_name)
+            stats.num_bug += 1
+            if not clang_only:
+                stats.num_bug_gcc += 1
+            if not gcc_only:
+                stats.num_bug_clang += 1
+        return True
 
     return False
 

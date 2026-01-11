@@ -10,7 +10,7 @@
  * memset calls with vectorized stores or calls to memcpy/memset that
  * use FP/SIMD instructions.
  * 
- * Requirement: AARCH64 GCC -O2 and above. Clang -O1 and above.
+ * Requirement: AARCH64 GCC from 11.1.0 -O2 and above. Clang from 9.0.0 -O1 and above.
  * Mitigation: Use manual byte-wise clearing with compiler barriers to
  * prevent such optimizations.
  */

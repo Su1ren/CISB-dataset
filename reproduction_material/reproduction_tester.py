@@ -14,7 +14,7 @@ import signal
 import re
 
 # Special cases that need specific handling
-arm_file_list = ['l-23.c', 'b-26.c']
+arm_file_list = ['l-23.c', 'b-26.c', 'l-54.c']
 reproduce_set_path = 'test_cases/'
 
 def ubsan_testing(cc, args, testcases_path, file_name, input_str='', output='verbose'):

@@ -9,7 +9,7 @@
  * optimize away or misinterpret the memory access, leading to
  * incorrect behavior.
  * 
- * Requirement: GCC, LLVM/Clang 12.0.8, -O1 and above, -fno-builtin -DUSE_MEMMGR -I . -m32 -fno-stack-protector
+ * Requirement: GCC 4.8.1+, LLVM/Clang 3.2-12.0.8, -O1 and above, -fno-builtin -DUSE_MEMMGR -I . -m32 -fno-stack-protector
  * Mitigation: Avoid relying on stack layout and use proper parameter passing.
  */
 

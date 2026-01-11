@@ -9,7 +9,7 @@
  * optimize the call to a noreturn function into a jump, skipping the stack canary
  * check that would normally occur on function exit, leading to software defense vulnerabilities.
  * 
- * Requirement: GCC 10, -O1 or higher. Clang 14 -O1 and above. -fstack-protector -fno-omit-frame-pointer enabled.
+ * Requirement: GCC 4.9+, -O1 or higher. Clang 13+ -O1 and above. -fstack-protector -fno-omit-frame-pointer enabled.
  * Mitigation: Mark the tail call function as noinline to prevent tail-call optimization.
  */
 

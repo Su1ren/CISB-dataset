@@ -11,7 +11,7 @@
  * Evidence: When compiled with optimizations, the compiler may optimize the memset
  * of the entire union, leaving padding bits uninitialized.
  * 
- * Requirement: from GCC 4.8.0, -O1 and above.
+ * Requirement: from GCC 4.4.7, -O1 and above.
  * Mitigation: use explicit_bzero to ensure all bits are cleared.
  */
 

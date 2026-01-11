@@ -7,7 +7,7 @@
  * Evidence: When compiled with optimizations, the compiler merges two stores into one unaligned store, generating
  * stur x4, [x0, #4] writing 64 bits into dst， causing a runtime crash due to unaligned access.
  * 
- * Requirement: AARCH64 architecture, GCC 11.2.0
+ * Requirement: AARCH64 architecture, GCC 8.1.0-12.0.1
  *              CFLAGS = -fpic -Wall -ansi -std=c99 -Wno-variadic-macros -g -Werror -fPIC -shared -Wall -O2 -ggdb3
  * minimal options: -shared and -O2 and above
  * Mitigation: use volatile temporary variables to prevent optimization.

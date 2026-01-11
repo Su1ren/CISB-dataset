@@ -2320,41 +2320,9 @@ b-30.c-gcc-O0:
     default_option: "-shared"
     special_cause: UB
 
-l-54.c-clang-O3:
+l-54.c:
     file_name: "l-54.c"
-    cc: clang-14
-    input:
-    check_type: 6
-    test_str: "movaps"
-    section_name: "main:"
-    special_cause: "Environment assumption"
-
-l-54.c-clang-O2:
-    file_name: "l-54.c"
-    cc: clang-14
-    input:
-    check_type: 6
-    test_str: "movaps"
-    section_name: "main:"
-    special_cause: "Environment assumption"
-
-l-54.c-clang-O1:
-    file_name: "l-54.c"
-    cc: clang-14
-    input:
-    check_type: 6
-    test_str: "movaps"
-    section_name: "main:"
-    special_cause: "Environment assumption"
-
-l-54.c-clang-O0:
-    file_name: "l-54.c"
-    cc: clang-14
-    input:
-    check_type: 6
-    test_str: "movaps"
-    section_name: "main:"
-    special_cause: "Environment assumption"
+    special_cause: Others
 
 b-27.c-gcc-O3:
     file_name: "b-27.c"

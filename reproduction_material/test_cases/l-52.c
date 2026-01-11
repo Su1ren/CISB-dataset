@@ -11,7 +11,7 @@
  * during which user memory access is allowed, potentially allowing
  * unintended user memory access.
  * 
- * Requirement: GCC -O1 and above. Clang 14.0 -O1 and above (12.0 -O2 and above).
+ * Requirement: GCC -O1 and above. Clang 13.0+ -O1 and above (12.0 -O2 and above).
  * Mitigation: Mark the function calling user_access_begin as noinline to prevent inlining.
  */
 

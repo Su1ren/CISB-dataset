@@ -9,7 +9,7 @@
  * leading to incorrect behavior when the inline assembly tries to access the
  * address of the local variable.
  * 
- * Requirement: GCC 4.6.0, -Os/O1 and above.
+ * Requirement: GCC 4.5.3 and above, -Os/O1 and above.
  * Mitigation: Use a separate pointer variable and inline assembly to confuse the compiler.
 */
 
