@@ -1237,74 +1237,38 @@ l-8.c-clang-O0:
 
 l-11.c-gcc-O3:
     file_name: "l-11.c"
-    cc: gcc-12
+    cc: gcc-4.9
     input:
-    check_type: 2
-    test_str: "16"
-    section_name:
+    check_type: 5
+    test_str: "movq	$0, 8"
+    section_name: ".LFB12:"
     special_cause: "Others"
 
 l-11.c-gcc-O2:
     file_name: "l-11.c"
-    cc: gcc-12
+    cc: gcc-4.9
     input:
-    check_type: 2
-    test_str: "16"
-    section_name:
+    check_type: 5
+    test_str: "movq	$0, 8"
+    section_name: ".LFB12:"
     special_cause: "Others"
 
 l-11.c-gcc-O1:
     file_name: "l-11.c"
-    cc: gcc-12
+    cc: gcc-4.9
     input:
-    check_type: 2
-    test_str: "16"
-    section_name:
+    check_type: 5
+    test_str: "movq	$0, 8"
+    section_name: ".LFB12:"
     special_cause: "Others"
 
 l-11.c-gcc-O0:
     file_name: "l-11.c"
-    cc: gcc-12
+    cc: gcc-4.9
     input:
-    check_type: 2
-    test_str: "16"
-    section_name:
-    special_cause: "Others"
-
-l-11.c-clang-O3:
-    file_name: "l-11.c"
-    cc: clang-14
-    input:
-    check_type: 2
-    test_str: "16"
-    section_name:
-    special_cause: "Others"
-
-l-11.c-clang-O2:
-    file_name: "l-11.c"
-    cc: clang-14
-    input:
-    check_type: 2
-    test_str: "16"
-    section_name:
-    special_cause: "Others"
-
-l-11.c-clang-O1:
-    file_name: "l-11.c"
-    cc: clang-14
-    input:
-    check_type: 2
-    test_str: "16"
-    section_name:
-    special_cause: "Others"
-
-l-11.c-clang-O0:
-    file_name: "l-11.c"
-    cc: clang-14
-    input:
-    check_type: 2
-    test_str: "16"
-    section_name:
+    check_type: 5
+    test_str: "movq	$0, -24"
+    section_name: ".LFB0:"
     special_cause: "Others"
 
 l-13.c-gcc-O3:
@@ -2208,78 +2172,6 @@ l-52.c-clang-O0:
     section_name: "wrapper:"
     special_cause: DB
 
-l-53.c-gcc-O3:
-    file_name: "l-53.c"
-    cc: gcc-12
-    input:
-    check_type: 5
-    test_str: "call\tdebug_lockdep_rcu_enabled_old"
-    section_name: ".LFB26:"
-    special_cause: DB
-
-l-53.c-gcc-O2:
-    file_name: "l-53.c"
-    cc: gcc-12
-    input:
-    check_type: 5
-    test_str: "call\tdebug_lockdep_rcu_enabled_old"
-    section_name: ".LFB26:"
-    special_cause: DB
-
-l-53.c-gcc-O1:
-    file_name: "l-53.c"
-    cc: gcc-12
-    input:
-    check_type: 5
-    test_str: "call\tdebug_lockdep_rcu_enabled_old"
-    section_name: ".LFB26:"
-    special_cause: DB
-
-l-53.c-gcc-O0:
-    file_name: "l-53.c"
-    cc: gcc-12
-    input:
-    check_type: 5
-    test_str: "call\tdebug_lockdep_rcu_enabled_old"
-    section_name: ".LFB3:"
-    special_cause: DB
-
-l-53.c-clang-O3:
-    file_name: "l-53.c"
-    cc: clang-14
-    input:
-    check_type: 5
-    test_str: "callq\tdebug_lockdep_rcu_enabled_old"
-    section_name: "caller_old:"
-    special_cause: DB
-
-l-53.c-clang-O2:
-    file_name: "l-53.c"
-    cc: clang-14
-    input:
-    check_type: 5
-    test_str: "callq\tdebug_lockdep_rcu_enabled_old"
-    section_name: "caller_old:"
-    special_cause: DB
-
-l-53.c-clang-O1:
-    file_name: "l-53.c"
-    cc: clang-14
-    input:
-    check_type: 5
-    test_str: "callq\tdebug_lockdep_rcu_enabled_old"
-    section_name: "caller_old:"
-    special_cause: DB
-
-l-53.c-clang-O0:
-    file_name: "l-53.c"
-    cc: clang-14
-    input:
-    check_type: 5
-    test_str: "callq\tdebug_lockdep_rcu_enabled_old"
-    section_name: "caller_old:"
-    special_cause: DB
-
 b-30.c-gcc-O3:
     file_name: "b-30.c"
     cc: gcc-12
@@ -2394,86 +2286,6 @@ l-50.c-clang-O0:
     check_type: 5
     test_str: "cmpl	$0"
     section_name: "connect_v4_prog:"
-    special_cause: DB
-
-l-51.c-gcc-O3:
-    file_name: "l-51.c"
-    cc: gcc-7
-    input:
-    check_type: 5
-    test_str: "movl	-4(%ebp), %edx"
-    section_name: ".LFB0:"
-    default_option: "-m32"
-    special_cause: DB
-
-l-51.c-gcc-O2:
-    file_name: "l-51.c"
-    cc: gcc-7
-    input:
-    check_type: 5
-    test_str: "movl	-4(%ebp), %edx"
-    section_name: ".LFB0:"
-    default_option: "-m32"
-    special_cause: DB
-
-l-51.c-gcc-O1:
-    file_name: "l-51.c"
-    cc: gcc-7
-    input:
-    check_type: 5
-    test_str: "movl	-4(%ebp), %edx"
-    section_name: ".LFB0:"
-    default_option: "-m32"
-    special_cause: DB
-
-l-51.c-gcc-O0:
-    file_name: "l-51.c"
-    cc: gcc-7
-    input:
-    check_type: 5
-    test_str: "movl	-4(%ebp), %edx"
-    section_name: ".LFB0:"
-    default_option: "-m32"
-    special_cause: DB
-
-l-51.c-clang-O3:
-    file_name: "l-51.c"
-    cc: clang-12
-    input:
-    check_type: 5
-    test_str: "movl	-20(%ebp), %edx"
-    section_name: "test:"
-    default_option: "-m32"
-    special_cause: DB
-
-l-51.c-clang-O2:
-    file_name: "l-51.c"
-    cc: clang-12
-    input:
-    check_type: 5
-    test_str: "movl	-20(%ebp), %edx"
-    section_name: "test:"
-    default_option: "-m32"
-    special_cause: DB
-
-l-51.c-clang-O1:
-    file_name: "l-51.c"
-    cc: clang-12
-    input:
-    check_type: 5
-    test_str: "movl	-20(%ebp), %edx"
-    section_name: "test:"
-    default_option: "-m32"
-    special_cause: DB
-
-l-51.c-clang-O0:
-    file_name: "l-51.c"
-    cc: clang-12
-    input:
-    check_type: 5
-    test_str: "movl	-20(%ebp), %edx"
-    section_name: "test:"
-    default_option: "-m32"
     special_cause: DB
 
 b-31.c-gcc-O3:
