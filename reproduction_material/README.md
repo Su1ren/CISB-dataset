@@ -11,15 +11,15 @@ using our [Dockerfile](../env/Dockerfile).
 
 The compilers we use in the experiment script are the latest ones that can be 
 used to reproduce the CISBs. This group includes 
-gcc-4.1, gcc-4.4, gcc-4.9, gcc-7, gcc-12, clang-12, and clang-14.
+gcc-4.1, gcc-4.4, gcc-4.9, gcc-7, gcc-12, clang-11, clang-12, clang-14 and clang-17.
 
 To help with installation, we provide our own [script](../env/auto_get_compiler.sh) 
 that installs these compilers
-   ```
+```
 cd path/to/artifact/env
 chomod +x auto_get_compiler.sh
 sudo auto_get_compiler.sh
-   ```
+```
 
 To check whether all required compilers are installed properly, simply
 execute the [script](../check-compiler.py).

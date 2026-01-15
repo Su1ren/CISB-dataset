@@ -1237,38 +1237,74 @@ l-8.c-clang-O0:
 
 l-11.c-gcc-O3:
     file_name: "l-11.c"
-    cc: gcc-4.9
+    cc: gcc-7
     input:
     check_type: 5
-    test_str: "movq	$0, 8"
-    section_name: ".LFB12:"
+    test_str: "18(%rsp)"
+    section_name: ".LFB35:"
     special_cause: "Others"
 
 l-11.c-gcc-O2:
     file_name: "l-11.c"
-    cc: gcc-4.9
+    cc: gcc-7
     input:
     check_type: 5
-    test_str: "movq	$0, 8"
-    section_name: ".LFB12:"
+    test_str: "18(%rsp)"
+    section_name: ".LFB35:"
     special_cause: "Others"
 
 l-11.c-gcc-O1:
     file_name: "l-11.c"
-    cc: gcc-4.9
+    cc: gcc-7
     input:
     check_type: 5
-    test_str: "movq	$0, 8"
-    section_name: ".LFB12:"
+    test_str: "18(%rsp)"
+    section_name: ".LFB35:"
     special_cause: "Others"
 
 l-11.c-gcc-O0:
     file_name: "l-11.c"
-    cc: gcc-4.9
+    cc: gcc-7
     input:
     check_type: 5
-    test_str: "movq	$0, -24"
+    test_str: "-30"
     section_name: ".LFB0:"
+    special_cause: "Others"
+
+l-11.c-clang-O3:
+    file_name: "l-11.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "2(%rsp)"
+    section_name: "recvmsg_like:"
+    special_cause: "Others"
+
+l-11.c-clang-O2:
+    file_name: "l-11.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "2(%rsp)"
+    section_name: "recvmsg_like:"
+    special_cause: "Others"
+
+l-11.c-clang-O1:
+    file_name: "l-11.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "2(%rsp)"
+    section_name: "recvmsg_like:"
+    special_cause: "Others"
+
+l-11.c-clang-O0:
+    file_name: "l-11.c"
+    cc: clang-14
+    input:
+    check_type: 5
+    test_str: "-30"
+    section_name: "recvmsg_like:"
     special_cause: "Others"
 
 l-13.c-gcc-O3:

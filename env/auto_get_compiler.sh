@@ -12,8 +12,8 @@ echo  "deb http://dk.archive.ubuntu.com/ubuntu/ xenial main universe" >> /etc/ap
 echo  'deb http://dk.archive.ubuntu.com/ubuntu/ trusty main universe' >> /etc/apt/sources.list
 echo  'deb http://archive.ubuntu.com/ubuntu/ jammy main universe' >> /etc/apt/sources.list
 
-# get clang-17 from llvm repo (tsinghua mirror)
-echo "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/llvm-apt/jammy/ llvm-toolchain-jammy-17 main" | tee /etc/apt/sources.list.d/llvm.list
+# get clang-17 from llvm repo
+echo "deb [arch=amd64] https://apt.llvm.org/jammy/ llvm-toolchain-jammy-17 main" | tee /etc/apt/sources.list.d/llvm.list
 
 # import the GPG key
 wget -qO- https://apt.llvm.org/llvm-snapshot.gpg.key | tee /etc/apt/trusted.gpg.d/llvm.asc
