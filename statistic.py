@@ -1,9 +1,11 @@
 import csv
 from tabulate import tabulate
 from spec.get_spec2006_result import table6_overhead
+from reproduction_analysis import analyze_bug_reproduction_data
 
 bug_class = "dataset/CISB-dataset-classification-update.csv"
 bug_detail = "dataset/CISB-dataset-detailed-info-update.csv"
+bug_reproduce = "dataset/CISB-dataset-reproduce.csv"
 
 class unique_bug:
     def __init__(self, id, bug_class):
@@ -299,6 +301,8 @@ if __name__ == '__main__':
     if args.exp == "cisb-statistics":
         table_2()
         table_3()
+    elif args.exp == "reproduction-analysis":
+        analyze_bug_reproduction_data()
     elif args.exp == "mitigation-evaluation":
         show_human_failed_prevention()
         table_6_eff()

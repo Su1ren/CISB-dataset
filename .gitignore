@@ -5,3 +5,4 @@ core.*
 gcc-4.1.2
 .DS_Store
 .pyc
+__pycache__/
