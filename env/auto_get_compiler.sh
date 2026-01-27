@@ -2,10 +2,6 @@
 echo "obtain compilers now"
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-# get apt-key from ubuntu
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
-
 echo  "deb http://dk.archive.ubuntu.com/ubuntu/ focal main universe"  >> /etc/apt/sources.list
 echo  "deb http://dk.archive.ubuntu.com/ubuntu/ bionic main universe" >> /etc/apt/sources.list
 echo  "deb http://dk.archive.ubuntu.com/ubuntu/ xenial main universe" >> /etc/apt/sources.list
