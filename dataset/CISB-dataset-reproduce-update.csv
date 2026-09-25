@@ -1,0 +1,47 @@
+Unique bug id,Result,Compiler version:gcc,Compiler version:llvm,Compiler Explorer snapshot
+b-1,successful,4.1.2-16.1 -O1,,https://godbolt.org/z/MMErbMcTE
+b-2,successful,4.8.0-7 -O2; 8-11 -O1; 12-16 -O0,3.0.0-22.1.0 -O1,https://godbolt.org/z/zKxTM1jYj
+b-3,successful,8-13 -O2; 14 -O3; 15-16 -O2,,https://godbolt.org/z/WWdG9KdP9
+b-4,successful,4.1-7.4 -O1; 8-16 -O0; arm 5.4-6.4 -O2,3.0.0-22.1.0 -O1,https://godbolt.org/z/7oeoqoqa4; arm https://godbolt.org/z/9b5bbKfoz
+b-5,successful,9-16.0.1 -O1,3.3-22.1.0 -O1,https://godbolt.org/z/bs5v4cohd
+b-6,successful,4.1-16.0.1 -O1,3.0.0-22.1.0 -O1,https://godbolt.org/z/jzzhjdz1v
+b-7,successful,4.4-16.0.1 -O1,3.0.0-22.1.0 -O1,https://godbolt.org/z/r9eWMr41c
+b-8/l-24,successful,4.5.3-7.1 -O2; 8-16.0.1 -O1,10.0.0-22.1.0 -O1,https://godbolt.org/z/b9W6eYzxj
+b-9,successful,4.1-16.0.1 -O1,3.0.0-22.1.0 -O1,https://godbolt.org/z/vKTc5vqjf
+b-10,successful,4.1-16.0.1 -O1; 4.4 -O2,3.0.0-22.1.0 -O1,https://godbolt.org/z/vYvMx38GK
+b-11,successful,4.8.1-16.0.1 -O2,,https://godbolt.org/z/xqexcGxnv
+b-12,successful,4.4-16.0.1 -O1,3.0.0-22.1.0-O1,https://godbolt.org/z/fdvMx1W51
+b-13,successful,6.1-11.2 -O2,,https://godbolt.org/z/r3eWavYa5
+b-14,successful,4.1-16.0.1 -O0,3.0.0-22.1.0 -O1,https://godbolt.org/z/oTbbn9ofa
+b-15,successful,10.1-16.0.1 -O1,3.0.0-22.1.0 -O1,https://godbolt.org/z/jahe447nf
+b-16,successful,4.1-16.0.1 -O2,,https://godbolt.org/z/xso38Peoa
+b-20,successful,4.4.7-4.7.2 -O1,,https://godbolt.org/z/4x9d54h8d
+b-21/l-9,successful,4.1-16.0.1 -O1,3.0.0-9.0.0 -O1; 10.0.0-22.1.0 -O2,https://godbolt.org/z/316x3YKdh
+b-22,successful,,3.0.0-19.1.0 -O1,https://godbolt.org/z/9zbYd5a3K
+b-26,successful,arm 4.1-16.0.1 -O0,arm 9.0.0-20.1.0 -O0,https://godbolt.org/z/vnq4KhGPa
+b-27,successful,4.1.2-4.4.7 -O2,,https://godbolt.org/z/887cb3GE3
+b-28,successful,4.5.3-16.0.1 -O1,,https://godbolt.org/z/ToEcWfn3a
+b-29,successful,4.8.1-16.0.1 -O1,3.2-22.1.0 -O1,https://godbolt.org/z/dYMW5Yazf
+b-30,successful,8.1.0-16.0.1 -O2 -shared,,https://godbolt.org/z/faeT77beW
+b-31,successful,4.1.2-4.4.7 -O1;avr 4.5.4-4.6.4,,https://godbolt.org/z/dE58eK9Wq
+l-2,successful,,11.0.0-22.1.0 -O1,https://godbolt.org/z/sWoscPEj6
+l-8,successful,,3.0.0-22.1.0 -O1,https://godbolt.org/z/96W3YGj4q
+l-11,successful,4.1.2-16.0.1 -O0,3.0.0-22.1.0 -O0,https://godbolt.org/z/z4cEr6sqs
+l-13,successful,4.1.2 -O0; 9.1-16.0.1 -O1,3.3-22.1.0 -O1,https://godbolt.org/z/n99adovjP
+l-15,successful,4.4-16.0.1 -O1,3.0.0-22.1.0 -O1,https://godbolt.org/z/TosWcexch
+l-16,successful,4.1.2 -O2,,https://godbolt.org/z/GsjWdGYdb
+l-18,successful,4.1.2 -O0,3.0.0-22.1.0 -O0,https://godbolt.org/z/3jYf6TePr
+l-19,successful,4.3-4.9 -O2,,https://godbolt.org/z/fMWfP77WY
+l-23,successful,arm64 5.4-16.1 -O0,arm 10.0.0-22.1.0 -O0,https://godbolt.org/z/xddhWefTq
+l-25,successful,7.3-8.3 -O0 -mindirect-branch=thunk,,https://godbolt.org/z/nfM39rP65
+l-29,successful,4.4.7-16.0.1 -O1,,https://godbolt.org/z/TaEsaMqoP
+l-30,successful,4.1-16.0.1 -O1,3.0.0-22.1.0 -O1,https://godbolt.org/z/PG96Mxf3K
+l-37,successful,4.1-16.0.1 -O2,3.0.0-22.1.0 -O1,https://godbolt.org/z/f9r5z1GoE
+l-38,successful,4.1-16.0.1 -O1,3.0.0-22.1.0 -O1,https://godbolt.org/z/Pn1z48K1s
+l-41,successful,4.1-16.0.1 -O1,3.7-22.1.0 -O1,https://godbolt.org/z/3Mdfn9f1P
+l-43,successful,,3.0.0-22.1.0 -O1,https://godbolt.org/z/384e9KqEv
+l-50,successful,,17.0.1-22.1.0 -O1,https://godbolt.org/z/njPoq5asG
+l-52,successful,4.1-16.0.1 -O1,3.0.0-12 -O2; 13.0.0-22.1.0 -O1,https://godbolt.org/z/9Kvf347Y5
+l-54,successful,arm64 11.1.0-12.2 -O2,arm 9.0.0-14.0.0 -O2,https://godbolt.org/z/a96hvsca7
+l-55,successful,,3.1.0-22.1.0 -O1,https://godbolt.org/z/8Wcdz5sxx
+l-56,successful,,3.0.0-11.1.0 -O1,cannot compile online
